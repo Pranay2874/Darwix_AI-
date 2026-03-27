@@ -1,8 +1,9 @@
 import nltk
 import os
+import tempfile
 
-# Ensure punkt is downloaded locally
-nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
+# Ensure punkt is downloaded locally to a writable directory (required for Vercel)
+nltk_data_dir = os.path.join(tempfile.gettempdir(), "nltk_data")
 os.makedirs(nltk_data_dir, exist_ok=True)
 nltk.data.path.append(nltk_data_dir)
 
